@@ -66,7 +66,7 @@
       <section>
           <p>登録一覧<a href="{{ action('Manage\SliderController@sort') }}"><span>並び替え</span></a></p>
           <div>
-          <form action="{{ url('manage/slider/sort_check') }}" method="post">
+          <form action="{{ url('manage/cms/slider/sort_check') }}" method="post">
             @csrf
             <table>
               <thead>
@@ -80,10 +80,11 @@
                   <th>詳細</th>
                 </tr>
               </thead>
+              <input id="slider_ids" type="hidden" name="slider_ids[]">
               <tbody id="sortdata">
                 @foreach ($data as $d)
                 <tr>
-                  <input id="{{ 'slider_'.$d->sort_num }}" type="hidden" name="slider_nums[]" value="{{ $d->sort_num }}">
+                  <input id="{{ 'slider_'.$d->sort_num }}" type="hidden" name="slider_nums[]" value="{{ $d->sort_num }}" class="sliders">
                   <th name="slider_num">{{ $d->name }}</td>
                   <td><img src="{{ $d->image_url }}" alt="" width="200" height="300"></td>
                   <td>{{ $d->created_at }}</td>

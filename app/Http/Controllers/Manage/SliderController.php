@@ -152,8 +152,15 @@ class SliderController extends Controller
     }
     public function sort_check(Request $request)
     {
+        $slider_ids = $request->only('slider_ids');
+        $slider_nums = $request->only('slider_nums');
         var_dump($request->only('slider_nums'));
+        echo '<br>';
+        var_dump($request->only('slider_ids'));
         exit;
+        foreach ($slider_nums as $num) {
+            DB::table('tb_slider')->insert();
+        }
         $data = DB::table('tb_slider')->orderBy('sort_num', 'asc')->get();
         return view('manage/cms/slider/show ', compact('data'));
     }

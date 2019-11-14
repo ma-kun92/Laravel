@@ -11,16 +11,18 @@ $(document).ready(function(){
   
    // スライダー並び替え操作
    $('#sortdata').sortable();
-   // $('#sortdata').bind('sortstop',function(){
-   //   // 番号を設定している要素に対しループ処理
-   //   $(this).find('[name="slider_num"]').each(function(idx){
-   //     // タグ内に通し番号を設定（idxは0始まりなので+1する）
-   //     $(this).html(idx+1);
-   //   });
-   // });
    
-   // var slider_nums = [];
-   // slider_elements = document.getElementsByClassName('');
+   
+   const slider_ids = document.getElementById('slider_ids');
+   const a = Array();
+   const slider_ids_start = document.getElementsByClassName('sliders');
+   slider_ids_start.forEach(element => {
+     let num = element.value;
+     a.push(num);
+   });
+   console.log(a);
+   
+   
   
   document.getElementById('image1').addEventListener('change', function (e) {
     // 1枚だけ表示する
