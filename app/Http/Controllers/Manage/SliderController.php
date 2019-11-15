@@ -152,14 +152,24 @@ class SliderController extends Controller
     }
     public function sort_check(Request $request)
     {
-        $slider_ids = $request->only('slider_ids');
-        $slider_nums = $request->only('slider_nums');
-        var_dump($request->only('slider_nums'));
-        echo '<br>';
-        var_dump($request->only('slider_ids'));
-        exit;
+        $slider_ids = $request->input('slider_ids');
+        $slider_nums = $request->input('slider_nums');
+        $slider_id_ar = explode(',', $slider_ids);
+        // var_dump($slider_nums);
+        // echo '<br>';
+        // var_dump($slider_id_ar);
+        
+        
+        $count = count($slider_nums);
+        // echo $count;
+        $sql_data = array();
+        for ($i=0; $i < $count; $i++) { 
+            $sql_data[] = array($slider_id_ar[$i] => $slider_nums[$i]);
+        }
+        // var_dump($sql_data);
+        // exit;
         foreach ($slider_nums as $num) {
-            DB::table('tb_slider')->insert();
+            DB::table('tb_slider')->update();
         }
         $data = DB::table('tb_slider')->orderBy('sort_num', 'asc')->get();
         return view('manage/cms/slider/show ', compact('data'));

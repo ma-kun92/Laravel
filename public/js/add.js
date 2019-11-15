@@ -12,15 +12,18 @@ $(document).ready(function(){
    // スライダー並び替え操作
    $('#sortdata').sortable();
    
-   
    const slider_ids = document.getElementById('slider_ids');
-   const a = Array();
+   let a = new Array();
    const slider_ids_start = document.getElementsByClassName('sliders');
-   slider_ids_start.forEach(element => {
-     let num = element.value;
-     a.push(num);
+  
+   Array.prototype.forEach.call(slider_ids_start, function (element){
+    let num = element.value;
+    a.push(num);
    });
    console.log(a);
+   
+   slider_ids.value =a;
+   
    
    
   

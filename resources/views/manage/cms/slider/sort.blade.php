@@ -80,7 +80,7 @@
                   <th>詳細</th>
                 </tr>
               </thead>
-              <input id="slider_ids" type="hidden" name="slider_ids[]">
+              <input id="slider_ids" type="hidden" name="slider_ids">
               <tbody id="sortdata">
                 @foreach ($data as $d)
                 <tr>
