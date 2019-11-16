@@ -158,19 +158,22 @@ class SliderController extends Controller
         // var_dump($slider_nums);
         // echo '<br>';
         // var_dump($slider_id_ar);
+        // exit;
         
         
         $count = count($slider_nums);
         // echo $count;
         $sql_data = array();
         for ($i=0; $i < $count; $i++) { 
-            $sql_data[] = array($slider_id_ar[$i] => $slider_nums[$i]);
+            $sql_data[] = array('slider_id' => $slider_id_ar[$i], 'sort_num' => $slider_nums[$i]);
         }
         // var_dump($sql_data);
         // exit;
-        foreach ($slider_nums as $num) {
-            DB::table('tb_slider')->update();
+        
+        foreach($sql_data as $d){
+            Slider::where('slider_id', $d['slider_id'])->update(['sort_num'=>$d['sort_num']]);
         }
+        
         $data = DB::table('tb_slider')->orderBy('sort_num', 'asc')->get();
         return view('manage/cms/slider/show ', compact('data'));
     }
