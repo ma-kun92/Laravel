@@ -79,3 +79,9 @@ Route::get('/manage/cms/slider/edit', 'Manage\SliderController@edit');
 Route::get('/manage/cms/slider/edit_check', 'Manage\SliderController@edit_check');
 Route::get('/manage/cms/slider/sort', 'Manage\SliderController@sort');
 Route::post('/manage/cms/slider/sort_check', 'Manage\SliderController@sort_check');
+
+// CMS：スライダー登録
+Route::get('/manage/cms/contents', 'Manage\ContentsController@index');
+Route::get('/manage/cms/contents/index', 'Manage\ContentsController@index');
+Route::post('/manage/cms/contents/check', 'Manage\ContentsController@check');
+Route::get('/manage/cms/contents/check', 'Manage\ContentsController@check');

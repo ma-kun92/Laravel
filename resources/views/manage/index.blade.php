@@ -39,6 +39,7 @@
           <li><a href="{{ action('Manage\RegisterController@index') }}"><span>Company</span>一括会員登録</a></li>
           <li><a href="{{ action('Manage\SliderController@index') }}"><span>Slider</span>スライダー登録</a></li>
           <li><a href="{{ action('Manage\SliderController@show') }}"><span>Slider</span>スライダー一覧</a></li>
+          <li><a href="{{ action('Manage\ContentsController@index') }}"><span>Contents</span>コンテンツ管理</a></li>
           @else
           <li><a href="{{ action('RegisterController@index') }}"><span>Register</span>会員登録</a></li>
           <li><a href="{{ action('LoginController@index') }}"><span>Login</span>ログイン</a></li>
