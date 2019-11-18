@@ -93,7 +93,7 @@
                 </tr>                
                 <tr>
                   <th>メイン画像</th>
-                  <td><img src="{{ $data['main_image'] }}" alt="" width="400" height="300"></td>
+                  <td><img src="{{ ($data['main_image']) }}" alt="" width="300" ></td>
                 </tr>                
                 <tr>
                   <th>メイン画像キャプション</th>
